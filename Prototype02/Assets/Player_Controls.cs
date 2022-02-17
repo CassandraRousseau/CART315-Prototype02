@@ -9,7 +9,6 @@ public class Player_Controls : MonoBehaviour
     private bool jumpKeyPressed;
     private float horizontalInput;
     private Rigidbody rigidbodyComponent;
-    private int superJumpsRemaining;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,23 +35,12 @@ public class Player_Controls : MonoBehaviour
             if (jumpKeyPressed)
             {
 
-            float jumpPower = 5;
-            if (superJumpsRemaining > 0) {
-                jumpPower *= 2;
-                superJumpsRemaining--;
-            }
+            float jumpPower = 7f;
+
                 rigidbodyComponent.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
                 jumpKeyPressed = false;
             }
            
         }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.layer == 7)
-        { Destroy(other.gameObject);
-
-            superJumpsRemaining++;
-        }
-    
-    }
 }
