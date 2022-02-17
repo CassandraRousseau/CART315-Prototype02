@@ -10,6 +10,12 @@ public class Player_Controls : MonoBehaviour
     private float horizontalInput;
     private Rigidbody rigidbodyComponent;
     // Start is called before the first frame update
+    
+    public GameOverScreen GameOverScreen;
+    public void GameOver()
+    {
+        GameOverScreen.Setup();
+    }
     void Start()
     {
         rigidbodyComponent = GetComponent<Rigidbody>();
